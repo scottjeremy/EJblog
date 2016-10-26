@@ -3,7 +3,7 @@
  */
 //这个模块里面封装了所有对数据库的常用操作
 var MongoClient = require('mongodb').MongoClient;
-var settings = require("../settings.js");
+var settings = require("settings.js");
 //不管数据库什么操作，都是先连接数据库，所以我们可以把连接数据库
 //封装成为内部函数
 function _connectDB(callback) {

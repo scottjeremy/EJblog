@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>注册</title>
-    <link rel="stylesheet" href="../css/foundation.css">
-    <link href='../css/foundation-icons/foundation-icons.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link href='stylesheets/foundation-icons/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header>
@@ -38,28 +38,28 @@
         <div class="row">
             <div class="medium-6 small-centered columns">
                 <label>用户名：
-                    <input type="text" placeholder="请输入用户名">
+                    <input type="text" id="name" placeholder="请输入用户名">
                 </label>
                 <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="medium-6 small-centered columns">
                 <label>注册邮箱：
                     <input type="text" placeholder="请输入注册邮箱">
                 </label>
                 <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="medium-6 small-centered columns">
                 <label>密码：
-                    <input type="password" placeholder="请输入密码">
+                    <input type="password" id="password" placeholder="请输入密码">
                 </label>
                 <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="medium-6 small-centered columns">
                 <label>确认密码：
                     <input type="password" placeholder="确认密码">
@@ -74,10 +74,10 @@
                 </label>
                 <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="medium-2 small-centered columns">
-                <button class="hollow button" href="#">注册</button>
+                <button id="register" class="hollow button" href="#">注册</button>
                 <button class="hollow button" href="#">登录</button>
             </div>
         </div>
@@ -89,14 +89,14 @@
         <div class="large-4 columns">
             <h5>FLICKR IMAGES</h5>
             <div class="row small-up-4">
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../img/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
             </div>
         </div>
         <div class="large-4 columns">
@@ -130,5 +130,23 @@
         </div>
     </div>
 </footer>
+
+<script type="text/javascript" src="javascript/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    //用ajax提交表单
+    $('#register').click(function () {
+        $.get("/doregister",{
+            "name" : $('#name').val(),
+            "password" : $('#password').val()
+
+        },function (result) {
+
+        });
+
+    });
+
+</script>
+
 </body>
 </html>
