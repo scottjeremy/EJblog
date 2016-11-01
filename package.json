@@ -1,15 +1,15 @@
 {
   "name": "node",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "first package",
   "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
-    "express-session": "^1.14.1",
-    "mongodb": "^2.2.11",
-    "formidable": "^1.0.17"
+    "express-session": "^1.14.2",
+    "formidable": "^1.0.17",
+    "mongodb": "^2.2.11"
   },
   "devDependencies": {},
   "scripts": {

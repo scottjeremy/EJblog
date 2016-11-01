@@ -1,0 +1,301 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>我的后花园</title>
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link href='stylesheets/foundation-icons/foundation-icons.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<style>
+    .fi-social-facebook{
+    color:dodgerblue;font-size:2rem;}
+    .fi-social-youtube{
+        color:red;font-size:2rem;}
+    .fi-social-pinterest{color:darkred;font-size:2rem;}
+    i.fi-social-instagram{color:brown;font-size:2rem;}
+    i.fi-social-tumblr{color:navy;font-size:2rem;}
+    .fi-social-twitter{color:skyblue;font-size:2rem;}
+</style>
+<header>
+    <div class="top-bar">
+        <div class="row column">
+            <div class="top-bar-left">
+                <ul class="menu">
+                    <li><a href="#">Scott Jeremy</a></li>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">Linux</a></li>
+                    <li><a href="#"><%=username%></a></li>
+                    <li><input type="search" placeholder="输入搜索内容"></li>
+                    <li><button type="button" class="button">搜索</button></li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <%
+                    if(login){
+                %>
+                <ul class="menu">
+                    <li><a href="#">欢迎您：<%=username%></a></li>
+                    <li><a href="#">设置个人资料</a></li>
+                </ul>
+                <%
+                    }else {
+                %>
+                <ul class="menu">
+                    <li><a href="/regist">注册</a></li>
+                    <li><a href="#">登陆</a></li>
+                </ul>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+    </div>
+</header>
+<!--<div style="width:100%;height: 500px; background-color: #EEEEEE;">
+    <h4 style="margin: 0;" class="text-center">欢迎来到豪贤的世界！</h4>
+</div>-->
+
+<hr>
+<div class="row">
+    <div class="large-8 columns" style="border-right: 1px solid #E3E5E8;">
+        <article>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Ubuntu彻底删除/卸载mysql,php,apache</a></h5>
+                    <p>
+                        <span><i class="fi-calendar"> 2016-10-10 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-eye"> 6222</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">NASA's SLS Rocket Sheds Saturn V Color Scheme in Design Review</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Astronaut's Watch Worn on the Moon Sells for Record $1.6 Million</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Interstellar Dust on the Galaxy's Magnetic Field | Space Wallpaper</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Explore the Moon (Virtually) with These Awesome Global Maps</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Best Space Books and Sci-Fi: A Space.com Reading List</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <ul class="pagination" role="navigation" aria-label="Pagination">
+                <li class="disabled">Previous <span class="show-for-sr">page</span></li>
+                <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+                <li><a href="#" aria-label="Page 2">2</a></li>
+                <li><a href="#" aria-label="Page 3">3</a></li>
+                <li><a href="#" aria-label="Page 4">4</a></li>
+                <li><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+            </ul>
+        </article>
+    </div>
+    <div class="large-4 columns">
+        <aside>
+            <div class="row small-up-3">
+                <div class="column text-center">
+                    <i class="fi-social-facebook"></i>
+                    <h6>56,009</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-twitter"></i>
+                    <h6>76,905</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-instagram"></i>
+                    <h6>34,099</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-tumblr"></i>
+                    <h6>13,765</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-pinterest"></i>
+                    <h6>9,283</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-youtube"></i>
+                    <h6>99,000</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+            </div>
+            <br>
+            <div class="row column">
+                <p class="lead">FROM OUR FRIENDS</p>
+                <p><img src="images/2.png" alt="advertisement of ShamWow"></p>
+            </div>
+            <br>
+            <div class="row column">
+                <p class="lead">TRENDING POSTS</p>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="images/3.png">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>All I need is a space suit and I'm ready to go.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="images/3.png">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>Are the stars out tonight? I don't know if it's cloudy or bright.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="images/3.png">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>And the world keeps spinning.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="images/3.png">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>Cold hearted orb that rules the night.</h5>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<footer>
+    <div class="row expanded callout secondary">
+        <div class="large-6 columns">
+            <h5>如果对你有帮助，请我喝杯咖啡呗。</h5>
+            <div class="row small-up-2">
+                <div class="column"><img class="thumbnail" src="../images/1.png" alt="image of space dog"></div>
+                <div class="column"><img class="thumbnail" src="../images/1.png" alt="image of space dog"></div>
+            </div>
+        </div>
+        <div class="large-2 columns">
+            <h5>如果对你有帮助，请我喝杯咖啡呗。</h5>
+            <span class="secondary label">Space</span>
+            <span class="secondary label">Galaxies</span>
+            <span class="secondary label">Milky Way</span>
+            <span class="secondary label">Black Holes</span>
+            <span class="secondary label">Rebels</span>
+            <span class="secondary label">Death Star</span>
+            <span class="secondary label">Republic</span>
+            <span class="secondary label">R2D2</span>
+        </div>
+        <div class="large-4 columns">
+            <h5>RANDOM MAG</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quam voluptatum vel repellat ab similique molestias molestiae ea omnis eos, id asperiores est praesentium, voluptate officia nulla aspernatur sequi aliquam.</p>
+        </div>
+    </div>
+    <div class="row expanded">
+        <div class="medium-6 columns">
+            <ul class="menu">
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Partner</a></li>
+                <li><a href="#">Explore</a></li>
+            </ul>
+        </div>
+        <div class="medium-6 columns">
+            <ul class="menu align-right">
+                <li class="menu-text">Copyright © 2016 曾豪贤(Scott Jeremy）</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

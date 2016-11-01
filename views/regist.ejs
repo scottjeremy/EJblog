@@ -34,13 +34,13 @@
     <h4 style="margin: 0;" class="text-center">魔幻世界</h4>
 </div>
 <div style="width:100%;margin-top: 20px;">
-    <form>
+
         <div class="row">
             <div class="medium-6 small-centered columns">
                 <label>用户名：
                     <input type="text" id="name" placeholder="请输入用户名">
                 </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
+                <p class="help-text bg-danger" id="usernameHelpText"></p>
             </div>
         </div>
         <!--<div class="row">
@@ -77,75 +77,31 @@
         </div>-->
         <div class="row">
             <div class="medium-2 small-centered columns">
-                <button id="register" class="hollow button" href="#">注册</button>
-                <button class="hollow button" href="#">登录</button>
+                <input type="button" value="注册" id="register" class="hollow button"></input>
             </div>
         </div>
-    </form>
+
 </div>
-
-<footer>
-    <div class="row expanded callout secondary">
-        <div class="large-4 columns">
-            <h5>FLICKR IMAGES</h5>
-            <div class="row small-up-4">
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-            </div>
-        </div>
-        <div class="large-4 columns">
-            <h5>FLICKR IMAGES</h5>
-            <span class="secondary label">Space</span>
-            <span class="secondary label">Galaxies</span>
-            <span class="secondary label">Milky Way</span>
-            <span class="secondary label">Black Holes</span>
-            <span class="secondary label">Rebels</span>
-            <span class="secondary label">Death Star</span>
-            <span class="secondary label">Republic</span>
-            <span class="secondary label">R2D2</span>
-        </div>
-        <div class="large-4 columns">
-            <h5>RANDOM MAG</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quam voluptatum vel repellat ab similique molestias molestiae ea omnis eos, id asperiores est praesentium, voluptate officia nulla aspernatur sequi aliquam.</p>
-        </div>
-    </div>
-    <div class="row expanded">
-        <div class="medium-6 columns">
-            <ul class="menu">
-                <li><a href="#">Legal</a></li>
-                <li><a href="#">Partner</a></li>
-                <li><a href="#">Explore</a></li>
-            </ul>
-        </div>
-        <div class="medium-6 columns">
-            <ul class="menu align-right">
-                <li class="menu-text">Copyright © 2016 曾豪贤(Scott Jeremy）</li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
 <script type="text/javascript" src="javascript/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
 
     //用ajax提交表单
-    $("#register").click(function(){
-        $.get("/doregist",{
-            "name" : $("#name").val(),
+    $('#register').click(function () {
+        $.post("/doregist",{
+            "username" : $("#name").val(),
             "password" : $("#password").val()
-        },function(result){
+
+        },function (result) {
             if(result == "1"){
-                alert("注册成功");
-            }else{
-                alert("注册失败");
+                alert("注册成功！跳转到首页！");
+                window.location.href = "/";
+            }else if(result == "-1"){
+                alert("用户名被占用");
+            }else if(result == "-3"){
+                alert("服务器错误");
             }
-        })
+        });
+
     });
 
 </script>

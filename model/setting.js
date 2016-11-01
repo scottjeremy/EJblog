@@ -1,3 +1,3 @@
-modules.exports = {
-    "dburl" : "mongodb://localhost:27017/test"
+module.exports = {
+    "dburl" : "mongodb://localhost:27017/comment"
 }
