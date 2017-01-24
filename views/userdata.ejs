@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>博客文章管理-越努力，越幸运！Scott Jeremy的个人博客，将由互联网学到的知识回馈给互联网</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <!-- 网站后台样式开始 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <!-- 网站后台样式结束 -->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="images/profile_small.jpg"/>
+                             </span>
+                    </div>
+                    <div class="logo-element">
+                        Scott
+                    </div>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">博客管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="/recording">写博客</a></li>
+                        <li><a href="/manage">博客文章管理</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="/userdata"><i class="fa fa-diamond"></i> <span class="nav-label">访问用户数据</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">欢迎来到Scott的管理后台</span>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> 退出登录
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>IP地址</th>
+                                    <th>cxIP地址</th>
+                                    <th>cx地理位置</th>
+                                    <th>cx游览器</th>
+                                    <th>cx游览系统</th>
+                                    <th>高德地理位置</th>
+                                    <th>访问时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="getAllArticle">
+
+                                </tbody>
+                            </table>
+                            <nav>
+                                <ul class="pagination">
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div>
+                <p class="m-t"> <small>Copyright &copy; 2016.Scott Jeremy All rights reserved.</small> 粤ICP备16097955号-1</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+    var getAllArticle = $('#getAllArticle');
+    getPage(0);
+    //AJAX读取文章列表
+    function getPage(page) {
+        $.post("/getUserdata?page="+page,function (result) {
+            console.log(result);
+            var ajaxText = result.allResult;
+            for(var i = 0; i < ajaxText.length; i++){
+                var html = "<tr><td>"+ajaxText[i].ID+"</td><td>"+ ajaxText[i].ipAddress + "</td><td>";
+                html+= ajaxText[i].cxipAddress + "</td><td>" + ajaxText[i].cxIsp + "</td><td>";
+                html+= ajaxText[i].cxBrowser + "</td><td>"+ajaxText[i].cxOS+"</td>";
+                html+= "<td>"+ajaxText[i].gdIsp+"</td><td>" + ajaxText[i].date + "</td><td>";
+                html+= "<a data-id='"+ajaxText[i].ID+"' class='btn btn-danger del'>删除记录</a></td></tr>";
+                $('#getAllArticle').append(html);
+            }
+            delUserdata();
+
+        });
+    }
+    //分页
+    $.post("/countUserdata", function (result) {
+        var amount = parseInt(result);
+        pagement = Math.ceil(amount / 10);
+        for(var i = 1; i <pagement+1;i++){
+            $(".pagination").append("<li><a href='javascript:;'>" + i +"</a></li>");
+        }
+        $(".pagination li:first").addClass("active");
+        $(".pagination li").click(function () {
+            var page = $(this).index();
+            $('#getAllArticle').html("");
+            getPage(page);
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    });
+
+    function delUserdata() {
+        $(".del").click(function () {
+            var ID = $(this).data("id");
+            $.post("/delUserdata",{"ID":ID},function (result) {
+
+                if(result == 1){
+                    swal({
+                        title: "你确定要删除吗?",
+                        text: "你将要删除该条用户信息",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定删除",
+                        closeOnConfirm: false
+                    }, function () {
+                        swal({
+                            title: "操作成功",
+                            text: "你已删除该用户信息.",
+                            timer: 2000
+                        },function () {
+                            window.location.reload();
+                        });
+                    });
+                }else {
+                    console.log(result);
+                }
+            });
+        });
+    }
+
+
+
+});
+
+</script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.metisMenu.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/inspinia.js"></script>
+<script src="js/pace.min.js"></script>
+
+</body>
+
+</html>

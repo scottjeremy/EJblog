@@ -1,301 +1,199 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>我的后花园</title>
-    <link rel="stylesheet" href="stylesheets/foundation.css">
-    <link href='stylesheets/foundation-icons/foundation-icons.css' rel='stylesheet' type='text/css'>
+    <title>首页-越努力，越幸运！Scott Jeremy的个人博客，将由互联网学到的知识回馈给互联网</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!--//Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Scott Jeremy" />
+    <script src="js/underscore-noflect.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=33823c697fdbbaafbf5a19a1c7c8f488"></script>
 </head>
 <body>
-<style>
-    .fi-social-facebook{
-    color:dodgerblue;font-size:2rem;}
-    .fi-social-youtube{
-        color:red;font-size:2rem;}
-    .fi-social-pinterest{color:darkred;font-size:2rem;}
-    i.fi-social-instagram{color:brown;font-size:2rem;}
-    i.fi-social-tumblr{color:navy;font-size:2rem;}
-    .fi-social-twitter{color:skyblue;font-size:2rem;}
-</style>
-<header>
-    <div class="top-bar">
-        <div class="row column">
-            <div class="top-bar-left">
-                <ul class="menu">
-                    <li><a href="#">Scott Jeremy</a></li>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">Linux</a></li>
-                    <li><a href="#"><%=username%></a></li>
-                    <li><input type="search" placeholder="输入搜索内容"></li>
-                    <li><button type="button" class="button">搜索</button></li>
-                </ul>
-            </div>
-            <div class="top-bar-right">
-                <%
-                    if(login){
-                %>
-                <ul class="menu">
-                    <li><a href="#">欢迎您：<%=username%></a></li>
-                    <li><a href="#">设置个人资料</a></li>
-                </ul>
-                <%
-                    }else {
-                %>
-                <ul class="menu">
-                    <li><a href="/regist">注册</a></li>
-                    <li><a href="#">登陆</a></li>
-                </ul>
-                <%
-                    }
-                %>
+<!-- header -->
+<div class="col-md-2 sidebar">
+    <div class="sidebar_top">
+        <h1><a href="/">Scott<span> Jer</span></a></h1>
+    </div>
+    <div class="top-navigation">
+        <div class="t-menu">菜单</div>
+
+        <div class="t-img">
+            <img src="images/lines.png" alt="" />
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="drop-navigation">
+        <div class="top-menu">
+
+            <ul>
+                <li class="/"><a href="/">主页</a></li>
+                <li><a href="/JavaScript">JavaScript</a></li>
+                <li><a href="/NodeJS">NodeJS</a></li>
+                <li><a href="/Environment">环境搭建</a></li>
+                <li><a href="/About">关于我</a></li>
+                <li><a href="/comment">留言</a></li>
+            </ul>
+        </div>
+        <script>
+            $( ".top-navigation" ).click(function() {
+                $( ".drop-navigation" ).slideToggle( 300, function() {
+                    // Animation complete.
+                });
+            });
+        </script>
+
+        <div class="side-btm">
+            <div class="copyright">
+                <p>Design by Scott Jeremy</p>
+                <p>Copyright &copy; 2016.Scott All rights reserved.</p>
+                <p><a href="#">粤ICP备16097955号-1</a></p>
             </div>
         </div>
-    </div>
-</header>
-<!--<div style="width:100%;height: 500px; background-color: #EEEEEE;">
-    <h4 style="margin: 0;" class="text-center">欢迎来到豪贤的世界！</h4>
-</div>-->
-
-<hr>
-<div class="row">
-    <div class="large-8 columns" style="border-right: 1px solid #E3E5E8;">
-        <article>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Ubuntu彻底删除/卸载mysql,php,apache</a></h5>
-                    <p>
-                        <span><i class="fi-calendar"> 2016-10-10 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-eye"> 6222</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">NASA's SLS Rocket Sheds Saturn V Color Scheme in Design Review</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Astronaut's Watch Worn on the Moon Sells for Record $1.6 Million</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Interstellar Dust on the Galaxy's Magnetic Field | Space Wallpaper</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Explore the Moon (Virtually) with These Awesome Global Maps</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p><img src="images/1.png" alt="image for article" alt="article preview image"></p>
-                </div>
-                <div class="large-6 columns">
-                    <h5><a href="#">Best Space Books and Sci-Fi: A Space.com Reading List</a></h5>
-                    <p>
-                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                        <span><i class="fi-comments"> 6 comments</i></span>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
-                </div>
-            </div>
-            <hr>
-            <ul class="pagination" role="navigation" aria-label="Pagination">
-                <li class="disabled">Previous <span class="show-for-sr">page</span></li>
-                <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-                <li><a href="#" aria-label="Page 2">2</a></li>
-                <li><a href="#" aria-label="Page 3">3</a></li>
-                <li><a href="#" aria-label="Page 4">4</a></li>
-                <li><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
-            </ul>
-        </article>
-    </div>
-    <div class="large-4 columns">
-        <aside>
-            <div class="row small-up-3">
-                <div class="column text-center">
-                    <i class="fi-social-facebook"></i>
-                    <h6>56,009</h6>
-                    <p><small>FOLLOWERS</small></p>
-                    <br>
-                </div>
-                <div class="column text-center">
-                    <i class="fi-social-twitter"></i>
-                    <h6>76,905</h6>
-                    <p><small>FOLLOWERS</small></p>
-                    <br>
-                </div>
-                <div class="column text-center">
-                    <i class="fi-social-instagram"></i>
-                    <h6>34,099</h6>
-                    <p><small>FOLLOWERS</small></p>
-                    <br>
-                </div>
-                <div class="column text-center">
-                    <i class="fi-social-tumblr"></i>
-                    <h6>13,765</h6>
-                    <p><small>FOLLOWERS</small></p>
-                </div>
-                <div class="column text-center">
-                    <i class="fi-social-pinterest"></i>
-                    <h6>9,283</h6>
-                    <p><small>FOLLOWERS</small></p>
-                </div>
-                <div class="column text-center">
-                    <i class="fi-social-youtube"></i>
-                    <h6>99,000</h6>
-                    <p><small>FOLLOWERS</small></p>
-                </div>
-            </div>
-            <br>
-            <div class="row column">
-                <p class="lead">FROM OUR FRIENDS</p>
-                <p><img src="images/2.png" alt="advertisement of ShamWow"></p>
-            </div>
-            <br>
-            <div class="row column">
-                <p class="lead">TRENDING POSTS</p>
-                <div class="media-object">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/3.png">
-                    </div>
-                    <div class="media-object-section">
-                        <h5>All I need is a space suit and I'm ready to go.</h5>
-                    </div>
-                </div>
-                <div class="media-object">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/3.png">
-                    </div>
-                    <div class="media-object-section">
-                        <h5>Are the stars out tonight? I don't know if it's cloudy or bright.</h5>
-                    </div>
-                </div>
-                <div class="media-object">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/3.png">
-                    </div>
-                    <div class="media-object-section">
-                        <h5>And the world keeps spinning.</h5>
-                    </div>
-                </div>
-                <div class="media-object">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/3.png">
-                    </div>
-                    <div class="media-object-section">
-                        <h5>Cold hearted orb that rules the night.</h5>
-                    </div>
-                </div>
-            </div>
-        </aside>
     </div>
 </div>
-<footer>
-    <div class="row expanded callout secondary">
-        <div class="large-6 columns">
-            <h5>如果对你有帮助，请我喝杯咖啡呗。</h5>
-            <div class="row small-up-2">
-                <div class="column"><img class="thumbnail" src="../images/1.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="../images/1.png" alt="image of space dog"></div>
+<div class="col-sm-10 col-sm-offset-3 col-md-10 col-md-offset-2">
+    <div class="news">
+        <div class="news-sec">
+            <div class="news-top" id="getAllArticle">
+
+            </div>
+            <div class="col-sm-12">
+                <nav>
+                    <ul class="pagination">
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="large-2 columns">
-            <h5>如果对你有帮助，请我喝杯咖啡呗。</h5>
-            <span class="secondary label">Space</span>
-            <span class="secondary label">Galaxies</span>
-            <span class="secondary label">Milky Way</span>
-            <span class="secondary label">Black Holes</span>
-            <span class="secondary label">Rebels</span>
-            <span class="secondary label">Death Star</span>
-            <span class="secondary label">Republic</span>
-            <span class="secondary label">R2D2</span>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!---->
+<script type="text/template" id="allArticle">
+    <div class="col-md-11 news-1">
+        <a href="/article?ID={{= ID }}"><h5>{{= topic }}</h5></a>
+        <h6>{{= date }}</h6>
+        <div class="post-body">
+            <p> {{= content.substring(0,200).replace(/<[^>]+>/g,"") }} </p>
         </div>
-        <div class="large-4 columns">
-            <h5>RANDOM MAG</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quam voluptatum vel repellat ab similique molestias molestiae ea omnis eos, id asperiores est praesentium, voluptate officia nulla aspernatur sequi aliquam.</p>
+        <div class="news-footer">
+            <h6 class="post-footer">
+                分类：{{= classify }} <!--| 评论：未开放--> | 浏览：{{= visitNum }} | 点赞：{{= thumbsUp }} |
+                <a href="/article?ID={{= ID }}">阅读全文 ></a>
+            </h6>
         </div>
     </div>
-    <div class="row expanded">
-        <div class="medium-6 columns">
-            <ul class="menu">
-                <li><a href="#">Legal</a></li>
-                <li><a href="#">Partner</a></li>
-                <li><a href="#">Explore</a></li>
-            </ul>
-        </div>
-        <div class="medium-6 columns">
-            <ul class="menu align-right">
-                <li class="menu-text">Copyright © 2016 (Scott Jeremy）</li>
-            </ul>
-        </div>
-    </div>
-</footer>
+</script>
+
+<script type="text/javascript">
+    var getAllArticle = $('#getAllArticle');
+    //得到模板
+    var compiled = _.template($("#allArticle").html());
+    getPage(0);
+    //AJAX读取文章列表
+    function getPage(page) {
+        $.post("/getArticle?page="+page,function (result) {
+            for(var i = 0; i<result.allResult.length; i++){
+                var htmlstring = compiled(result.allResult[i]);
+                getAllArticle.append(htmlstring);
+            }
+        });
+    }
+    //分页
+    $.post("/getAllAmount", function (result) {
+        var amount = parseInt(result);
+        pagement = Math.ceil(amount / 10);
+        for(var i = 1; i <pagement+1;i++){
+            $(".pagination").append("<li><a href='javascript:;'>" + i +"</a></li>");
+        }
+        $(".pagination li:first").addClass("active");
+        $(".pagination li").click(function () {
+            var page = $(this).index();
+            $('#getAllArticle').html("");
+            getPage(page);
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    });
+
+    var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();
+
+    var map, geolocation;
+    //加载地图，调用浏览器定位服务
+    map = new AMap.Map('container', {
+        resizeEnable: true
+    });
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 1000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        var lnglatXY = [data.position.getLng(),data.position.getLat()];
+        regeocoder(lnglatXY);
+    }
+    //解析定位错误信息
+    function onError(data) {
+        $.getJSON(url, function(data){
+            $.post("/getAddress",{
+                "cxipAddress" : data.Ip,
+                "cxIsp" : data.Isp,
+                "cxBrowser" : data.Browser,
+                "cxOS" : data.OS,
+                "gdIsp" : "高德无法定位"
+            },function (result) {
+
+            });
+        });
+    }
+
+    function regeocoder(lnglatXY) {  //逆地理编码
+        var geocoder = new AMap.Geocoder({
+            radius: 1000,
+            extensions: "all"
+        });
+        geocoder.getAddress(lnglatXY, function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                geocoder_CallBack(result);
+            }
+        });
+        var marker = new AMap.Marker({  //加点
+            map: map,
+            position: lnglatXY
+        });
+        map.setFitView();
+    }
+    function geocoder_CallBack(data) {
+        var address = data.regeocode.formattedAddress; //返回地址描述
+        $.getJSON(url, function(data){
+            $.post("/getAddress",{
+                "cxipAddress" : data.Ip,
+                "cxIsp" : data.Isp,
+                "cxBrowser" : data.Browser,
+                "cxOS" : data.OS,
+                "gdIsp" : address
+            },function (result) {
+                console.log(result);
+            });
+        });
+    }
+</script>
+
+<!---->
 </body>
 </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>留言-越努力，越幸运！Scott Jeremy的个人博客，将由互联网学到的知识回馈给互联网</title>
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="js/underscore-noflect.js"></script>
+    <!-- Custom Theme files -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/style.css" rel='stylesheet' type='text/css' />
+    <!--//Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Scott Jeremy" />
+</head>
+<body>
+<!-- header -->
+<div class="col-md-2 sidebar">
+    <div class="sidebar_top">
+        <h1><a href="/">Scott<span> Jer</span></a></h1>
+    </div>
+    <div class="top-navigation">
+        <div class="t-menu">菜单</div>
+
+        <div class="t-img">
+            <img src="../images/lines.png" alt="" />
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="drop-navigation">
+        <div class="top-menu">
+
+            <ul>
+                <li class="/"><a href="/">主页</a></li>
+                <li><a href="/JavaScript">JavaScript</a></li>
+                <li><a href="/NodeJS">NodeJS</a></li>
+                <li><a href="/Environment">环境搭建</a></li>
+                <li><a href="/About">关于我</a></li>
+                <li><a href="/comment">留言</a></li>
+            </ul>
+        </div>
+        <script>
+            $( ".top-navigation" ).click(function() {
+                $( ".drop-navigation" ).slideToggle( 300, function() {
+                    // Animation complete.
+                });
+            });
+        </script>
+
+        <div class="side-btm">
+            <div class="copyright">
+                <p>Design by Scott Jeremy</p>
+                <p>Copyright &copy; 2016.Scott All rights reserved.</p>
+                <p><a href="#">粤ICP备16097955号-1</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-10 col-sm-offset-3 col-md-10 col-md-offset-2">
+    <div class="news">
+        <div class="news-sec">
+            <div class="news-top">
+                <div class="col-md-12 news-1">
+                    <a href="javascript:;"><h5>发表留言</h5></a>
+                    <div class="blog-body">
+                        <div class="blog-content">
+                            <form role="form" style="margin-top: 10px;" class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder=" 名称 (必填)">
+                                    <p class="help-block" id="Hname" style="display: none;">请填写你的名称</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="邮件地址(不会被公开) (必填)">
+                                    <p class="help-block" id="Hemail" style="display: none;">请填写邮箱地址</p>
+                                </div>
+                                <textarea class="form-control" rows="3" id="content" placeholder="留言内容 (必填)"></textarea>
+                                <p class="help-block" id="Hcontent" style="display: none;">请填写留言内容</p>
+                                <input type="button" id="submit" style="margin-top: 10px;" class="btn btn-info" value="发表留言">
+                            </form>
+                            <ul class="msg msghead">
+                                <li class="tbname">留言列表</li>
+                            </ul>
+                            <div id="getAllComment">
+
+                            </div>
+                            <nav>
+                                <ul class="pagination" style="display: block">
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<script type="text/template" id="AllComment">
+    <ul class="msg">
+        <li class="msgname">
+            <img class="avatar" src="../images/t2.jpg"/>
+            <span class="commentname">{{= name.substring(0,200).replace(/<[^>]+>/g,"") }}</span><br>
+            <span class="commenttime">发布于：{{= date }}</span>
+        </li>
+        <li class="msgarticle">
+            {{= content.substring(0,200).replace(/<[^>]+>/g,"") }}
+        </li>
+    </ul>
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var content = $("#content").val();
+            var reg = /^[a-z0-9](\w|\.|-)*@\w{2,}\.(com|cn|net|com.cn|net.cn)$/i;
+            $("#Hname").css("display","none");
+            $("#Hemail").css("display","none");
+            $("#Hcontent").css("display","none");
+            if(name == ""){
+                $("#Hname").css("display","block");
+                return;
+            }else if(email == ""){
+                $("#Hemail").css("display","block");
+                return;
+            }else if(content == ""){
+                $("#Hcontent").css("display","block");
+                return;
+            }else if(!reg.test(email)){
+                $("#Hemail").html("邮箱格式错误！");
+                $("#Hemail").css("display","block");
+                return;
+            }
+            $.post("/doComment",{
+                "name" : name,
+                "email" : email,
+                "content" : content
+            },function (result) {
+                alert("发表成功！将刷新此页面");
+                window.location.reload();
+            });
+        });
+
+
+        var getAllComment = $('#getAllComment');
+        //得到模板
+        var compiled = _.template($("#AllComment").html());
+        getPage(0);
+        //AJAX读取文章列表
+        function getPage(page) {
+            $.post("/getComment?page="+page,function (result) {
+                for(var i = 0; i<result.allResult.length; i++){
+                    var htmlstring = compiled(result.allResult[i]);
+                    getAllComment.append(htmlstring);
+                }
+            });
+        }
+        //分页
+        $.post("/getAllCountComment", function (result) {
+            var amount = parseInt(result);
+            pagement = Math.ceil(amount / 10);
+            for(var i = 1; i <pagement+1;i++){
+                $(".pagination").append("<li><a href='javascript:;'>" + i +"</a></li>");
+            }
+            $(".pagination li:first").addClass("active");
+            $(".pagination li").click(function () {
+                var page = $(this).index();
+                $('#getAllComment').html("");
+                getPage(page);
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+    });
+</script>
+</body>
+</html>

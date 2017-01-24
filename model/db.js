@@ -1,6 +1,3 @@
-/**
- * Created by Danny on 2015/9/25 9:31.
- */
 //这个模块里面封装了所有对数据库的常用操作
 var MongoClient = require('mongodb').MongoClient;
 var settings = require("./setting.js");
@@ -69,7 +66,7 @@ exports.find = function (collectionName, json, C, D) {
             }
         });
     });
-}
+};
 
 //删除
 exports.deleteMany = function (collectionName, json, callback) {
@@ -83,7 +80,7 @@ exports.deleteMany = function (collectionName, json, callback) {
             }
         );
     });
-}
+};
 
 //修改
 exports.updateMany = function (collectionName, json1, json2, callback) {
@@ -95,8 +92,8 @@ exports.updateMany = function (collectionName, json1, json2, callback) {
                 callback(err, results);
                 db.close();
             });
-    })
-}
+    });
+};
 
 exports.getAllCount = function (collectionName,callback) {
     _connectDB(function (err, db) {
@@ -105,4 +102,4 @@ exports.getAllCount = function (collectionName,callback) {
             db.close();
         });
     })
-}
+};

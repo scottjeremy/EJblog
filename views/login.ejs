@@ -1,158 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>登陆</title>
-    <link rel="stylesheet" href="stylesheets/foundation.css">
-    <link href='stylesheets/foundation-icons/foundation-icons.css' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EAblog管理员登陆-越努力，越幸运！Scott Jeremy的个人博客，将由互联网学到的知识回馈给互联网</title>
+
+    <link href="admin/bootstrap.min.css" rel="stylesheet">
+    <link href="admin/animate.css" rel="stylesheet">
+    <link href="admin/style.css" rel="stylesheet">
+    <meta name="keywords" content="Scott Jeremy" />
+
 </head>
-<body>
-<header>
-    <div class="top-bar">
-        <div class="row column">
-            <div class="top-bar-left">
-                <ul class="menu">
-                    <li class="menu-text"><a href="#">Scott Jeremy</a></li>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">Linux</a></li>
-                    <li><a href="#">日常</a></li>
-                    <li><input type="search" placeholder="输入搜索内容"></li>
-                    <li><button type="button" class="button">搜索</button></li>
-                </ul>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+    <div>
+        <h3>EAblog管理员登陆</h3>
+        <form class="m-t" role="form" action="login.html">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名" required="">
             </div>
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
-                </ul>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="请输入注册密码" required="">
             </div>
-        </div>
+
+            <input type="button" id="login" class="btn btn-primary block full-width m-b" value="登陆">
+        </form>
+        <p class="m-t"> <small>Copyright &copy; 2016.Scott All rights reserved.</small> </p>
     </div>
-</header>
-<div style="width:100%;height: 100px; background-color: #EEEEEE;">
-    <h4 style="margin: 0;" class="text-center">魔幻世界</h4>
-</div>
-<div style="width:100%;margin-top: 20px;">
-    <form action="" method="post">
-        <div class="row">
-            <div class="medium-6 small-centered columns">
-                <label>登录名：
-                    <input type="text" id="name" placeholder="请输入用户名">
-                </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
-            </div>
-        </div>
-        <!--<div class="row">
-            <div class="medium-6 small-centered columns">
-                <label>注册邮箱：
-                    <input type="text" placeholder="请输入注册邮箱">
-                </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
-            </div>
-        </div>-->
-        <div class="row">
-            <div class="medium-6 small-centered columns">
-                <label>密码：
-                    <input type="password" id="password" placeholder="请输入密码">
-                </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
-            </div>
-        </div>
-        <!--<div class="row">
-            <div class="medium-6 small-centered columns">
-                <label>确认密码：
-                    <input type="password" placeholder="确认密码">
-                </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="medium-6 small-centered columns">
-                <label>验证码：
-                    <input type="password" placeholder="确认密码">
-                </label>
-                <p class="help-text bg-danger" id="passwordHelpText">Your password must have at least 10 characters, a number, and an Emoji.</p>
-            </div>
-        </div>-->
-        <div class="row">
-            <div class="medium-2 small-centered columns">
-                <input type="button" value="登陆" id="login" class="hollow button"></input>
-            </div>
-        </div>
-    </form>
 </div>
 
-<footer>
-    <div class="row expanded callout secondary">
-        <div class="large-4 columns">
-            <h5>FLICKR IMAGES</h5>
-            <div class="row small-up-4">
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-                <div class="column"><img class="thumbnail" src="images/4.png" alt="image of space dog"></div>
-            </div>
-        </div>
-        <div class="large-4 columns">
-            <h5>FLICKR IMAGES</h5>
-            <span class="secondary label">Space</span>
-            <span class="secondary label">Galaxies</span>
-            <span class="secondary label">Milky Way</span>
-            <span class="secondary label">Black Holes</span>
-            <span class="secondary label">Rebels</span>
-            <span class="secondary label">Death Star</span>
-            <span class="secondary label">Republic</span>
-            <span class="secondary label">R2D2</span>
-        </div>
-        <div class="large-4 columns">
-            <h5>RANDOM MAG</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quam voluptatum vel repellat ab similique molestias molestiae ea omnis eos, id asperiores est praesentium, voluptate officia nulla aspernatur sequi aliquam.</p>
-        </div>
-    </div>
-    <div class="row expanded">
-        <div class="medium-6 columns">
-            <ul class="menu">
-                <li><a href="#">Legal</a></li>
-                <li><a href="#">Partner</a></li>
-                <li><a href="#">Explore</a></li>
-            </ul>
-        </div>
-        <div class="medium-6 columns">
-            <ul class="menu align-right">
-                <li class="menu-text">Copyright © 2016 (Scott Jeremy）</li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<!-- Mainly scripts -->
+<script src="admin/jquery-2.1.1.js"></script>
+<script src="admin/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="javascript/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
+<script>
+    //用ajax提交表单
     $('#login').click(function () {
-        $.post("/dologin", {
-            "username" : $("#name").val(),
+        $.post("/doLogin",{
+            "username" : $("#username").val(),
             "password" : $("#password").val()
+
         },function (result) {
             if(result == "1"){
-                alert("登陆成功");
-                window.location.href = "/";
-            }else if(result == "-1"){
-                alert("没有这个注册用户");
+                alert("登陆成功！跳转到首页！");
+                window.location.href = "/recording";
             }else if(result == "-2"){
-                alert("密码不正确");
+                alert("密码错误");
+            }else if(result == "-1"){
+                alert("没有该用户");
             }else if(result == "-3"){
-                alert("服务器错误");
+                alert("服务器错误！");
+            }else{
+                alert("未知原因，登陆失败");
             }
         });
 
     });
-
-
 </script>
 
 </body>
+
 </html>

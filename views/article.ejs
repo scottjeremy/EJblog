@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title><%= allResult.topic %>-越努力，越幸运！Scott Jeremy的个人博客，将由互联网学到的知识回馈给互联网 </title>
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/style.css" rel='stylesheet' type='text/css' />
+    <!--//Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Scott Jeremy" />
+</head>
+<body>
+<!-- header -->
+<div class="col-md-2 sidebar">
+    <div class="sidebar_top">
+        <h1><a href="/">Scott<span> Jer</span></a></h1>
+    </div>
+    <div class="top-navigation">
+        <div class="t-menu">菜单</div>
+
+        <div class="t-img">
+            <img src="../images/lines.png" alt="" />
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="drop-navigation">
+        <div class="top-menu">
+
+            <ul>
+                <li class="/"><a href="/">主页</a></li>
+                <li><a href="/JavaScript">JavaScript</a></li>
+                <li><a href="/NodeJS">NodeJS</a></li>
+                <li><a href="/Environment">环境搭建</a></li>
+                <li><a href="/About">关于我</a></li>
+                <li><a href="/comment">留言</a></li>
+            </ul>
+        </div>
+        <!-- script-for-menu -->
+        <script>
+            $( ".top-navigation" ).click(function() {
+                $( ".drop-navigation" ).slideToggle( 300, function() {
+                    // Animation complete.
+                });
+            });
+        </script>
+
+        <div class="side-btm">
+            <!--<div class="social-icons">
+                <ul>
+                    <li><a href="#"><span class="fa"> </span></a></li>
+                    <li><a href="#"><span class="tw"> </span></a></li>
+                    <li><a href="#"><span class="g"> </span></a></li>
+                    <li><a href="#"><span class="in"> </span></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>-->
+            <div class="copyright">
+                <p>Copyright &copy; 2015.Scott All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-10 col-sm-offset-3 col-md-10 col-md-offset-2">
+    <div class="news">
+        <div class="news-sec">
+            <div class="news-top">
+                <div class="col-md-12 news-1">
+                    <a href="/article?ID=<%= allResult.ID %>"><h5><%= allResult.topic %></h5></a>
+                    <h6><%= allResult.date %></h6>
+                    <div class="blog-body">
+                        <div class="blog-content">
+                            <%- allResult.content %>
+                        </div>
+                    </div>
+                    <p align="center">如果该文章对你有帮助，请点赞。</p>
+                    <p align="center">
+                        <button type="button" id="thumbsUp" class="btn btn-info btn-lg thumbsUp">点赞</button>
+                    </p>
+                    <div class="news-footer">
+                        <h6 class="post-footer">
+                            分类：<%= allResult.classify %> | 评论：未开放 | 浏览：<%= allResult.visitNum %> | 点赞：<%= allResult.thumbsUp %> |
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<script type="text/javascript">
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+
+    var ID = getUrlParam("ID");
+
+    $.post("/addVisitorNum",{"ID":ID},function (result) {
+    });
+
+    $("#thumbsUp").click(function () {
+        $.post("/addThumbsUp",{"ID":ID},function (result) {
+            $("#thumbsUp").attr("disabled","disabled");
+            $("#thumbsUp").html("你已点赞");
+        });
+    });
+
+</script>
+</body>
+</html>
