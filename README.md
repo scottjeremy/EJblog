@@ -3,7 +3,7 @@ Nodejs+MongoDB+jQuery+Bootstrap Personal blog.
 
 ##这是一个开源的个人博客系统。
 
-个人纯碎为了练习nodejs而做出来的一个博客，给个Star就是我最大的动力！如有建议或Issues，请提交。我会仔细看每一条的建议。
+个人纯碎为了练习nodejs而做出来的一个博客，给个Star就是我最大的动力！如有建议或Issues，请提交。我会仔细看每一条的建议尽量把这个项目做得更好。
 
 ##技术选型：
 
@@ -14,8 +14,6 @@ Nodejs+MongoDB+jQuery+Bootstrap Personal blog.
 ##功能
 
 *文章：发布文章，文章分类，删除文章 获取访问用户的地理位置（采用CX网和高德的API）
-
-##小小细节：博客后台管理登陆是采用了双重MD5加密，不过最近听朋友说MD5早已经给人破解了，解了，了。。
 
 ##Install
 
@@ -43,4 +41,4 @@ Nodejs+MongoDB+jQuery+Bootstrap Personal blog.
 ```
   node app.js
 ```
-#登陆后台 帐号：123123 密码：123123
+####登陆后台 帐号：123123 密码：123123
