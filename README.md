@@ -1,5 +1,7 @@
-# EAblog
-Nodejs+MongoDB+jQuery+Bootstrap Personal blog.
+# EJblog
+Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
+
+顾名思义Express (E) jQuery(J)
 
 ##这是一个开源的个人博客系统。
 
@@ -17,7 +19,7 @@ Nodejs+MongoDB+jQuery+Bootstrap Personal blog.
 
 ##Install
 
-#####安装EAblog前要先安装node环境和MongoDB数据库，具体安装请自行Google。
+#####安装EJblog前要先安装node环境和MongoDB数据库，具体安装请自行Google。
 
 #####作为例子，我已经写入一些数据可提供使用观看。数据位置在data文件夹内
 
