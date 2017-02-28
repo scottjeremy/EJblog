@@ -1,7 +1,7 @@
 # EJblog
 Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
-顾名思义Express (E) jQuery(J)
+顾名思义   Express (E)    jQuery(J)
 
 ##这是一个开源的个人博客系统。
 
