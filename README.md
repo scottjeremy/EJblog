@@ -35,7 +35,7 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
 启动MongoDB数据库和保存数据库的位置,url是相对路径。
 ```
-  mongodb --dbpath url
+  mongod --dbpath url
 ```
 
 第三步：
