@@ -9,9 +9,9 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
 ## 技术选型：
 
-*后台：采用Express作为框架 MongoDB作为数据库 ejs作为模板引擎  
+* 后台：采用Express作为框架 MongoDB作为数据库 ejs作为模板引擎  
 
-*前台：采用jQuery库 Bootstrap作为前端UI框架
+* 前台：采用jQuery库 Bootstrap作为前端UI框架
  
 ## 功能
 
