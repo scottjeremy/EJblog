@@ -15,10 +15,11 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
  
 ## 功能
 
-*文章：发布文章，文章分类，删除文章 获取访问用户的地理位置（采用CX网和高德的API）
+* 文章：发布文章，文章分类，删除文章 获取访问用户的地理位置（采用CX网和高德的API）
 
-目录结构：
+## 目录结构：
 
+```
 data  数据库文件夹
 model 模块目录
 ---- db.js      封装了对数据库的操作（增删改查）
@@ -31,6 +32,7 @@ routers 路由目录
 views 模板目录
 app.js 入口文件
 package.json 文件依赖配置包
+```
 
 ## Install
 
