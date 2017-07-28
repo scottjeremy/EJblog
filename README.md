@@ -5,7 +5,7 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
 ## 这是一个开源的个人博客系统。
 
-个人纯碎为了练习nodejs而做出来的一个博客，给个Star就是我最大的动力！如有建议或Issues，请提交。我会仔细看每一条的建议尽量把这个项目做得更好。
+个人纯碎为了练习nodejs而做出来的一个博客，给个Star就是我最大的动力！
 
 ## 技术选型：
 
