@@ -7,6 +7,8 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
 个人纯碎为了练习nodejs而做出来的一个博客，给个Star就是我最大的动力！
 
+该系统已停止更新维护，等我有机会接触NodeJS再来写关于NodeJS的博客。
+
 ## 技术选型：
 
 * 后台：采用Express作为框架 MongoDB作为数据库 ejs作为模板引擎  
