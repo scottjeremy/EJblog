@@ -9,6 +9,20 @@ Nodejs(Express)+MongoDB+jQuery+Bootstrap Personal blog.
 
 该系统已停止更新维护，等我有机会接触NodeJS再来写关于NodeJS的博客。
 
+## 用Node.JS+MongoDB搭建个人博客系列 逐行代码分析：
+
+### [用Node.JS+MongoDB搭建个人博客（成品展示）](http://www.cnblogs.com/scottjeremy/p/7027790.html)
+
+### [用Node.JS+MongoDB搭建个人博客（安装环境）（一）](http://www.cnblogs.com/scottjeremy/p/6993480.html)
+
+### [用Node.JS+MongoDB搭建个人博客（app.js接口文件）（二）](http://www.cnblogs.com/scottjeremy/p/7238131.html)
+
+### [用Node.JS+MongoDB搭建个人博客（model目录）（三）](http://www.cnblogs.com/scottjeremy/p/7245802.html)
+
+### [用Node.JS+MongoDB搭建个人博客（万众期待的router.js）（四）](http://www.cnblogs.com/scottjeremy/p/7238941.html)
+
+### [用Node.JS+MongoDB搭建个人博客（页面模板）（五）（结束）](http://www.cnblogs.com/scottjeremy/p/7250684.html)
+
 ## 技术选型：
 
 * 后台：采用Express作为框架 MongoDB作为数据库 ejs作为模板引擎  
