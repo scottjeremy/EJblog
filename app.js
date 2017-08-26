@@ -6,7 +6,7 @@ var bodyParser   = require('body-parser');
 var ejs          = require('ejs');
 var ueditor      = require('ueditor');
 var session = require('express-session');
-require('./proxy');
+//require('./proxy');
 
 //使用session
 app.use(session({
