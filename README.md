@@ -66,9 +66,9 @@ package.json 文件依赖配置包
 
 第二步：
 
-启动MongoDB数据库和保存数据库的位置,url是相对路径。
+启动MongoDB数据库和保存数据库的位置,data是相对路径。
 ```
-  mongod --dbpath url
+  mongod --dbpath data
 ```
 
 第三步：
@@ -76,4 +76,4 @@ package.json 文件依赖配置包
 ```
   node app.js
 ```
-#### 登陆后台 帐号：123123 密码：123123
+#### 登陆后台(localhost:3000/login) 帐号：123123 密码：123123
