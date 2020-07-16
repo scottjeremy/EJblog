@@ -122,7 +122,7 @@ app.post("/addVisitorNum", router.addVisitorNum);
 //addThumbsUp(点赞数)
 app.post("/addThumbsUp", router.addThumbsUp);
 
-console.log("Server running");
+console.log("Server running at 127.0.0.1:3000");
 
 
 
